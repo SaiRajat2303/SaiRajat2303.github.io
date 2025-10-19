@@ -1,43 +1,52 @@
 /* ====== Reset ====== */
 * { margin:0; padding:0; box-sizing:border-box; font-family:"Inter",sans-serif; }
 
-/* ====== Dark Background with PCB Image & Blue Circuits ====== */
+/* ====== Background with PCB + Dark Overlay + Blue Circuits ====== */
 .background {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: -1; overflow: hidden;
-
-  /* PCB background lightly visible */
+  position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden;
+  background-color: #000;
   background-image:
-    url('assets/pcb-bg.png'),
     linear-gradient(0deg, rgba(0,150,255,0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,150,255,0.02) 1px, transparent 1px);
-  background-size: cover, 120px 120px, 120px 120px;
-  background-repeat: no-repeat, repeat, repeat;
-  background-position: center, 0 0, 0 0;
+  background-size:120px 120px;
+  background-repeat:repeat, repeat;
+  background-position:0 0, 0 0;
 }
 
+.background::after {
+  content:'';
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background:url('assets/pcb-bg.png') center/cover no-repeat;
+  opacity:0.15; z-index:-2;
+}
+
+/* Dark overlay to make text readable */
 .background::before {
-  content: '';
-  position: absolute; width: 200%; height: 200%;
+  content:'';
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.6); /* Increase opacity for darker shadow */
+  z-index:-1;
+}
+
+/* Circuit shimmer lines on top of overlay */
+.shimmer-lines {
+  position:absolute; width:200%; height:200%;
   background-image:
     linear-gradient(90deg, rgba(0,150,255,0.05) 1px, transparent 1px),
     linear-gradient(rgba(0,150,255,0.05) 1px, transparent 1px);
-  background-size: 120px 120px;
+  background-size:120px 120px;
   animation: shimmer 15s linear infinite;
+  z-index:-1;
 }
-
 @keyframes shimmer {
-  0% { transform: translate(0,0); opacity:0.3; }
-  50% { transform: translate(25px,25px); opacity:0.6; }
-  100% { transform: translate(0,0); opacity:0.3; }
+  0%{transform:translate(0,0);opacity:0.3;}
+  50%{transform:translate(25px,25px);opacity:0.6;}
+  100%{transform:translate(0,0);opacity:0.3;}
 }
 
 /* ====== Floating Pulsing Dots ====== */
-.circuit-dots { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
-.dot { position:absolute; width:5px; height:5px; border-radius:50%; background:#0096ff; opacity:0.5; animation: pulse 2s infinite, float 12s linear infinite; }
-
-/* 20 dots with staggered animation delays */
+.circuit-dots { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
+.dot { position:absolute; width:5px; height:5px; border-radius:50%; background:#0096ff; opacity:0.5; animation:pulse 2s infinite, float 12s linear infinite; }
 .dot:nth-child(1){top:5%; left:10%; animation-delay:0s,0s;}
 .dot:nth-child(2){top:15%; left:30%; animation-delay:0.2s,1s;}
 .dot:nth-child(3){top:25%; left:50%; animation-delay:0.4s,2s;}
@@ -59,11 +68,11 @@
 .dot:nth-child(19){top:35%; left:35%; animation-delay:3.6s,18s;}
 .dot:nth-child(20){top:45%; left:65%; animation-delay:3.8s,19s;}
 
-@keyframes pulse {0%,100%{transform:scale(1);opacity:0.3;}50%{transform:scale(1.8);opacity:1;}}
-@keyframes float {0%{transform:translate(0,0);}25%{transform:translate(20px,-15px);}50%{transform:translate(-15px,20px);}75%{transform:translate(10px,-10px);}100%{transform:translate(0,0);}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:0.3;}50%{transform:scale(1.8);opacity:1;}}
+@keyframes float{0%{transform:translate(0,0);}25%{transform:translate(20px,-15px);}50%{transform:translate(-15px,20px);}75%{transform:translate(10px,-10px);}100%{transform:translate(0,0);}}
 
 /* ====== Hero Section ====== */
-.hero { text-align:center; color:#fff; padding:120px 20px 40px; }
+.hero { text-align:center; color:#0096ff; padding:120px 20px 40px; }
 .profile-img { width:250px; height:250px; object-fit:cover; border:3px solid #0096ff; border-radius:16px; transition: transform 0.4s ease, box-shadow 0.4s ease; }
 .profile-img:hover { transform:scale(1.15); box-shadow:0 0 50px #0096ff; }
 
@@ -77,22 +86,22 @@
 .company-logo:hover { transform: scale(1.3); filter: drop-shadow(0 0 20px #0096ff); }
 
 /* Glowing hero text */
-.glow-text { font-size:3rem; margin-top:20px; color:#fff; text-shadow:0 0 20px #0096ff,0 0 35px #0096ff; }
-.subtitle { color:#c9d1d9; max-width:700px; margin:15px auto; font-size:1.2rem; line-height:1.5; }
+.glow-text { font-size:3rem; margin-top:20px; color:#0096ff; text-shadow:0 0 20px #0096ff,0 0 35px #0096ff; }
+.subtitle { color:#66c0ff; max-width:700px; margin:15px auto; font-size:1.2rem; line-height:1.5; }
 
 /* Section Titles */
 .section-title { text-align:center; font-size:2rem; margin-top:60px; margin-bottom:25px; color:#0096ff; text-shadow:0 0 20px #0096ff; animation: fadeIn 1s ease; }
 @keyframes fadeIn { from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);} }
 
 /* Lists & Tables */
-ul { color:#c9d1d9; list-style:none; max-width:800px; margin:0 auto 40px; font-size:1.1rem; }
-ul li { padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.1); }
-table { width:90%; max-width:800px; margin:0 auto 60px; border-collapse:collapse; color:#c9d1d9; }
-th, td { border:1px solid rgba(255,255,255,0.2); padding:10px; text-align:left; }
+ul { color:#66c0ff; list-style:none; max-width:800px; margin:0 auto 40px; font-size:1.1rem; }
+ul li { padding:6px 0; border-bottom:1px solid rgba(0,150,255,0.2); }
+table { width:90%; max-width:800px; margin:0 auto 60px; border-collapse:collapse; color:#66c0ff; }
+th, td { border:1px solid rgba(0,150,255,0.3); padding:10px; text-align:left; }
 th { background-color: rgba(0,150,255,0.2); }
 
 /* Footer */
-footer { text-align:center; padding:40px; color:#8892b0; font-size:1rem; }
+footer { text-align:center; padding:40px; color:#66c0ff; font-size:1rem; }
 
 /* Responsive */
 @media (max-width:768px){
