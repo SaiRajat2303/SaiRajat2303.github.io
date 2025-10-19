@@ -13,7 +13,7 @@
 
   <!-- Floating Dots -->
   <div class="circuit-dots">
-    <!-- Increase the number of dots -->
+    <!-- 20 dots -->
     <span class="dot" style="--i:0;"></span>
     <span class="dot" style="--i:1;"></span>
     <span class="dot" style="--i:2;"></span>
@@ -54,43 +54,46 @@
 
     <h1 class="glow-text">Hey There, I'm Sai Rajat!</h1>
     <p class="subtitle">
-      RISC-V Cores and System IP Engineer @ 
+      Engineer, RISC-V Cores and System IP @
       <img src="assets/tenstorrent-logo.png" alt="Tenstorrent" class="company-logo"> Tenstorrent
     </p>
     <p class="subtitle">
       Former Silicon Engineering Intern @ 
-      <img src="assets/google-logo.png" alt="Google" class="company-logo"> Google (Pixel SoC team)
+      <img src="assets/google-logo.png" alt="Google" class="company-logo"> Google India (Pixel SoC)
     </p>
   </section>
 
-  <!-- About Me -->
+  <!-- Focus Areas -->
   <section>
-    <h2 class="section-title">About Me</h2>
-    <ul>
-      <li>🎯 Focus Areas: High Performance Architectures , Shared Cache micro-architecture , Cache Coherence , Testbench development , RTL Design and Integration</li>
-      <li>💻 Languages: SystemVerilog, Verilog, Python, C++</li>
-      <li>🧩 Tools: Verilator, Synopsys VCS, Vivado, OpenROAD, OpenSTA</li>
-      <li>🧾 Aspiring PhD student in Computer Architecture / VLSI Design</li>
-    </ul>
+    <h2 class="section-title">🎯 Focus Areas</h2>
+    <div class="focus-grid">
+      <div class="focus-item">High Performance Architectures</div>
+      <div class="focus-item">Cache Coherence</div>
+      <div class="focus-item">CPU Micro-Architecture</div>
+      <div class="focus-item">Testbench Development</div>
+      <div class="focus-item">RTL Design & Integration</div>
+    </div>
   </section>
 
-  <!-- Projects -->
+  <!-- Experience -->
   <section>
-    <h2 class="section-title">🚀 Projects</h2>
-    <p class="subtitle">Add your projects here...</p>
-  </section>
-
-  <!-- Skills -->
-  <section>
-    <h2 class="section-title">🧑‍💻 Skills</h2>
-    <table>
-      <tr><th>Domain</th><th>Tools / Skills</th></tr>
-      <tr><td>RTL Design</td><td>SystemVerilog, FSM Design, Parameterized Modules</td></tr>
-      <tr><td>Verification</td><td>Testbenches, Debugging RTL, Assertions</td></tr>
-      <tr><td>EDA Tools</td><td>Verilator, VCS, Vivado, OpenROAD, ModelSim</td></tr>
-      <tr><td>Architecture</td><td>Pipeline Design, Cache Coherence, Branch Prediction</td></tr>
-      <tr><td>Scripting</td><td>Python, Bash, TCL</td></tr>
-    </table>
+    <h2 class="section-title">💼 My Time at Tenstorrent</h2>
+    <div class="experience-item">
+      <h3 class="job-title">Design & Verification Engineer at Tenstorrent</h3>
+      <ul>
+        <li>Designed and integrated <strong>IOMMU, APLIC, and a peripheral AXI Bridge</strong> enabling Linux and DOOM to run on Tenstorrent's Ascalon core at TT-Blueprint, San Francisco.</li>
+        <li>Built <strong>L1 + L2 Cache Models</strong> for multiple clusters, catching critical inter- and intra-cluster coherency bugs, including a Dirty Victim Evict bug.</li>
+        <li>Co-developed <strong>RV TESTER</strong>, a RISC-V core testbench methodology, to be presented at RISC-V Summit North America 2025.</li>
+        <li>Developed a novel <strong>End-of-Simulation Memory Checking methodology</strong> with micro-architectural hacks; presented to Jim Keller (CEO, Tenstorrent).</li>
+        <li>Built a complete <strong>DV environment for DMA device emulation</strong>, verifying Linux device driver sequences using AXI transactors and IOMMU integration.</li>
+        <li>Planned and verified <strong>PMA and PMP tests</strong> for RISC-V IOMMU.</li>
+        <li>Developed <strong>Tracer Infrastructure</strong> to track AXI transactions across bridges, switches, and caches.</li>
+        <li>Implemented various <strong>checkers</strong> (SVADU, AXI response timeout) to catch critical RTL and performance bugs.</li>
+        <li>Enhanced the <strong>Shared Cache CHI2AXI Bridge</strong> to support AXI re-ordering for memory ordering scenarios.</li>
+        <li>Built and deployed a <strong>Coherency Monitor</strong> for Load-Store to L2 cache traffic using SystemVerilog and AMBA CHI-E.</li>
+        <li>And more .....
+      </ul>
+    </div>
   </section>
 
   <footer>
