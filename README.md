@@ -1,13 +1,12 @@
-# 👋 Hi, I'm [Your Name]
+# Hey There, I'm Sai Rajat. Glad to meet you!
 
-🎓 **Design & Verification Engineer** | ⚙️ **RTL Design Enthusiast** | 💡 **Microarchitecture Explorer**
+**Design & Verification Engineer at Tenstorrent** | ⚙️ **High Performance Architectures Enthusiast** | **Interested in RTL Design** | 💡 **Microarchitecture Explorer**
 
 ---
 
-## 🧠 About Me
+## About Me
 
-I'm passionate about **High Peformance Architectures**,**CPU Microarchitecture** and **RTL Design**.  
-Currently exploring **Platform level components such as IOMMU** **out-of-order execution**, **CHI/AXI on chip interconnect protocols**, and **open-source hardware frameworks** like BOOM and Rocket Chip.
+
 
 - 🎯 Focus Areas: *CPU pipelines, cache coherence, AXI4, formal verification*
 - 💻 Languages: *SystemVerilog, Verilog, Python, C++*
@@ -18,23 +17,9 @@ Currently exploring **Platform level components such as IOMMU** **out-of-order e
 
 ## 🚀 Projects
 
-### 🔸 [AXI Traffic Generator](https://github.com/yourusername/axi-traffic-generator)
-A configurable traffic generator that supports **out-of-order read responses** and randomized transactions.  
-Built in SystemVerilog with modular FSMs for AR/R/W channels.
-
-### 🔸 [Out-of-Order R-Channel Handler](https://github.com/yourusername/axi-r-channel-handler)
-Implements **reordering logic** for AXI read responses using **ID-based tracking** and **LFSR-driven data generation**.
-
-### 🔸 [BOOM Core Exploration](https://github.com/yourusername/boom-core-research)
-Reverse-engineering and modeling the **Berkeley Out-of-Order Machine** in SystemVerilog, focusing on issue queues and branch prediction.
 
 ---
 
-## 🧩 Publications & Notes
-
-- 📝 *Understanding AXI4 Protocol: Timing & Out-of-Order Behavior* — Personal blog note  
-- 📘 *Designing an RTL Pipeline from Scratch* — In progress  
-- 📚 *Open-Source CPU Cores Deep Dive* — Comparative study (BOOM vs Rocket vs CVA6)
 
 ---
 
@@ -43,8 +28,8 @@ Reverse-engineering and modeling the **Berkeley Out-of-Order Machine** in System
 | Domain | Tools / Skills |
 |:--|:--|
 | RTL Design | SystemVerilog, FSM Design, Parameterized Modules |
-| Verification | Testbenches, UVM (basic), Assertions |
-| EDA Tools | Verilator, VCS, Vivado, OpenROAD |
+| Verification | Testbenches form Ascalon Core @ Tenstorrent | Debugging RTL | Assertions |
+| EDA Tools | Verilator, VCS, Vivado, OpenROAD, ModelSim |
 | Architecture | Pipeline Design, Cache Coherence, Branch Prediction |
 | Scripting | Python, Bash, TCL |
 
@@ -52,17 +37,13 @@ Reverse-engineering and modeling the **Berkeley Out-of-Order Machine** in System
 
 ## 📨 Contact
 
-📧 **Email:** [your.email@domain.com](mailto:your.email@domain.com)  
+📧 **Email:** [sairajatgoparaju@gmail.com](mailto:sairajatgoparaju@gmail.com)  
 💼 **LinkedIn:** [linkedin.com/in/yourusername](https://linkedin.com/in/yourusername)  
 🐙 **GitHub:** [github.com/yourusername](https://github.com/yourusername)
 
 ---
 
 ⭐ *“Designing hardware that thinks faster than I do.”*  
-*— [Your Name]*
+*— [Sai Rajat]*
 
----
 
-### 💡 Site Info
-This site is built with ❤️ using [GitHub Pages](https://pages.github.com/) and Markdown.  
-Theme: [`minimal`](https://github.com/pages-themes/minimal)
