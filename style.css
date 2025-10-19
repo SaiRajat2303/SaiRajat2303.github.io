@@ -6,7 +6,6 @@
   position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden;
   background-color: #1a1a2e;
 }
-
 .background::after {
   content:'';
   position:absolute; top:0; left:0; width:100%; height:100%;
@@ -14,7 +13,6 @@
   opacity:0.6;
   z-index:-2;
 }
-
 .background::before {
   content:'';
   position:absolute; top:0; left:0; width:100%; height:100%;
@@ -24,29 +22,13 @@
 
 /* ===== Floating Dots ===== */
 .circuit-dots {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  z-index:-1;
+  position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1;
 }
-
 .dot {
-  position:absolute;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#b3e0ff;
-  opacity:0.7;
-  /* Random starting position via CSS variables */
-  top: calc(var(--ty, 50%) + 0%);
-  left: calc(var(--tx, 50%) + 0%);
+  position:absolute; width:6px; height:6px; border-radius:50%; background:#b3e0ff; opacity:0.7;
+  top: calc(var(--ty, 50%) + 0%); left: calc(var(--tx, 50%) + 0%);
   animation: pulse 2s infinite, floatAround calc(8s + var(--i)*0.5s) ease-in-out infinite alternate;
 }
-
-/* Each dot gets random offsets to move independently */
 .dot:nth-child(0){--tx:5%; --ty:10%;}
 .dot:nth-child(1){--tx:80%; --ty:15%;}
 .dot:nth-child(2){--tx:40%; --ty:30%;}
@@ -72,7 +54,6 @@
   0%,100%{transform:scale(1);opacity:0.3;}
   50%{transform:scale(1.5);opacity:1;}
 }
-
 @keyframes floatAround{
   0%{transform: translate(0,0);}
   25%{transform: translate(10px,-5px);}
@@ -105,6 +86,11 @@
 /* Section Titles */
 .section-title { text-align:center; font-size:2rem; margin-top:60px; margin-bottom:25px; color:#b3e0ff; text-shadow:0 0 15px #b3e0ff; animation: fadeIn 1s ease; }
 @keyframes fadeIn { from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);} }
+
+/* Focus Areas */
+.focus-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:900px; margin:0 auto 50px; }
+.focus-item { background: rgba(179,224,255,0.1); padding: 15px 25px; border-radius:12px; color:#b3e0ff; font-weight:600; text-align:center; min-width:180px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow:0 0 10px rgba(179,224,255,0.2); }
+.focus-item:hover { transform: scale(1.1); box-shadow:0 0 25px #b3e0ff; }
 
 /* Lists & Tables */
 ul { color:#b3e0ff; list-style:none; max-width:800px; margin:0 auto 40px; font-size:1.1rem; }
