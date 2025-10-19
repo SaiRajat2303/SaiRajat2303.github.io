@@ -4,21 +4,21 @@
 /* ===== Background ===== */
 .background {
   position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden;
-  background-color: #101020; /* slightly lighter dark background */
+  background-color: #1a1a2e; /* slightly lighter dark background */
 }
 
 .background::after {
   content:'';
   position:absolute; top:0; left:0; width:100%; height:100%;
   background: url('assets/pcb-bg.png') center/cover no-repeat;
-  opacity:0.3; /* increased opacity */
+  opacity:0.6; /* increased visibility */
   z-index:-2;
 }
 
 .background::before {
   content:'';
   position:absolute; top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.4); /* slightly lighter overlay */
+  background: rgba(0,0,0,0.35);
   z-index:-1;
 }
 
@@ -27,26 +27,27 @@
 .dot {
   position:absolute; width:6px; height:6px; border-radius:50%; background:#b3e0ff;
   opacity:0.7;
-  animation: pulse 2s infinite, moveTrace calc(8s + var(--i)*1.5s) linear infinite;
-  offset-rotate: 0deg;
+  animation: pulse 2s infinite, randomMove calc(10s + var(--i)*0.7s) linear infinite;
+  top: calc(10% + 80% * var(--i)/20);
+  left: calc(10% + 80% * var(--i)/20);
 }
-.dot:nth-child(0){offset-path: path("M60 60 C160 80 260 140 360 120");}
-.dot:nth-child(1){offset-path: path("M80 40 C180 60 280 130 380 100");}
-.dot:nth-child(2){offset-path: path("M40 100 C140 120 240 180 340 140");}
-.dot:nth-child(3){offset-path: path("M70 30 C170 50 270 120 370 80");}
-.dot:nth-child(4){offset-path: path("M20 70 C120 90 220 150 320 110");}
-.dot:nth-child(5){offset-path: path("M90 50 C190 70 290 140 390 100");}
-.dot:nth-child(6){offset-path: path("M30 90 C130 110 230 170 330 130");}
-.dot:nth-child(7){offset-path: path("M50 20 C150 40 250 110 350 60");}
-.dot:nth-child(8){offset-path: path("M60 80 C160 100 260 160 360 120");}
-.dot:nth-child(9){offset-path: path("M10 60 C110 80 210 140 310 100");}
 
-@keyframes pulse{0%,100%{transform:scale(1);opacity:0.3;}50%{transform:scale(1.5);opacity:1;}}
-@keyframes moveTrace{0%{offset-distance:0%;}100%{offset-distance:100%;}}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:0.3;}
+  50%{transform:scale(1.5);opacity:1;}
+}
+
+@keyframes randomMove{
+  0%{transform: translate(0,0);}
+  25%{transform: translate(50px,-30px);}
+  50%{transform: translate(-40px,60px);}
+  75%{transform: translate(30px,-50px);}
+  100%{transform: translate(0,0);}
+}
 
 /* ===== Hero Section ===== */
 .hero { text-align:center; color:#b3e0ff; padding:120px 20px 40px; }
-.profile-img { width:250px; height:250px; object-fit:cover; border:3px solid #b3e0ff; border-radius:16px; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.profile-img { width:250px; height:250px; object-fit:cover; border:3px solid #b3e0ff; border-radius:16px; opacity:0.95; transition: transform 0.4s ease, box-shadow 0.4s ease; }
 .profile-img:hover { transform:scale(1.15); box-shadow:0 0 50px #b3e0ff; }
 
 /* Social Icons */
