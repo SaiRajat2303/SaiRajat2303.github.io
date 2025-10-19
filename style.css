@@ -4,14 +4,14 @@
 /* ===== Background ===== */
 .background {
   position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden;
-  background-color: #1a1a2e; /* slightly lighter dark background */
+  background-color: #1a1a2e;
 }
 
 .background::after {
   content:'';
   position:absolute; top:0; left:0; width:100%; height:100%;
   background: url('assets/pcb-bg.png') center/cover no-repeat;
-  opacity:0.6; /* increased visibility */
+  opacity:0.6;
   z-index:-2;
 }
 
@@ -23,25 +23,61 @@
 }
 
 /* ===== Floating Dots ===== */
-.circuit-dots { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
-.dot {
-  position:absolute; width:6px; height:6px; border-radius:50%; background:#b3e0ff;
-  opacity:0.7;
-  animation: pulse 2s infinite, randomMove calc(10s + var(--i)*0.7s) linear infinite;
-  top: calc(10% + 80% * var(--i)/20);
-  left: calc(10% + 80% * var(--i)/20);
+.circuit-dots {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
 }
+
+.dot {
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#b3e0ff;
+  opacity:0.7;
+  /* Random starting position via CSS variables */
+  top: calc(var(--ty, 50%) + 0%);
+  left: calc(var(--tx, 50%) + 0%);
+  animation: pulse 2s infinite, floatAround calc(8s + var(--i)*0.5s) ease-in-out infinite alternate;
+}
+
+/* Each dot gets random offsets to move independently */
+.dot:nth-child(0){--tx:5%; --ty:10%;}
+.dot:nth-child(1){--tx:80%; --ty:15%;}
+.dot:nth-child(2){--tx:40%; --ty:30%;}
+.dot:nth-child(3){--tx:20%; --ty:50%;}
+.dot:nth-child(4){--tx:70%; --ty:65%;}
+.dot:nth-child(5){--tx:10%; --ty:75%;}
+.dot:nth-child(6){--tx:50%; --ty:20%;}
+.dot:nth-child(7){--tx:30%; --ty:40%;}
+.dot:nth-child(8){--tx:85%; --ty:25%;}
+.dot:nth-child(9){--tx:60%; --ty:55%;}
+.dot:nth-child(10){--tx:15%; --ty:60%;}
+.dot:nth-child(11){--tx:45%; --ty:10%;}
+.dot:nth-child(12){--tx:75%; --ty:35%;}
+.dot:nth-child(13){--tx:25%; --ty:80%;}
+.dot:nth-child(14){--tx:55%; --ty:70%;}
+.dot:nth-child(15){--tx:35%; --ty:15%;}
+.dot:nth-child(16){--tx:90%; --ty:50%;}
+.dot:nth-child(17){--tx:10%; --ty:30%;}
+.dot:nth-child(18){--tx:50%; --ty:40%;}
+.dot:nth-child(19){--tx:20%; --ty:20%;}
 
 @keyframes pulse{
   0%,100%{transform:scale(1);opacity:0.3;}
   50%{transform:scale(1.5);opacity:1;}
 }
 
-@keyframes randomMove{
+@keyframes floatAround{
   0%{transform: translate(0,0);}
-  25%{transform: translate(50px,-30px);}
-  50%{transform: translate(-40px,60px);}
-  75%{transform: translate(30px,-50px);}
+  25%{transform: translate(10px,-5px);}
+  50%{transform: translate(-8px,6px);}
+  75%{transform: translate(5px,-8px);}
   100%{transform: translate(0,0);}
 }
 
