@@ -1,4 +1,4 @@
-/* General Reset */
+/* ====== General Reset ====== */
 * {
   margin: 0;
   padding: 0;
@@ -6,75 +6,105 @@
   font-family: "Inter", sans-serif;
 }
 
-/* Animated Gradient Background */
+/* ====== Background with Black + Shimmering Circuits + Floating Dots ====== */
 .background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, #0a0a1f, #0f0f2f, #1a1a40, #0a0a1f);
-  background-size: 400% 400%;
-  animation: gradient 12s ease infinite;
+  background: #000010; /* mostly black */
+  overflow: hidden;
   z-index: -1;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* Circuit lines */
+.background::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image:
+    linear-gradient(90deg, rgba(0,188,212,0.1) 1px, transparent 1px),
+    linear-gradient(rgba(0,188,212,0.1) 1px, transparent 1px);
+  background-size: 100px 100px;
+  animation: shimmer 15s linear infinite;
 }
 
-/* Hero Section */
+/* Circuit dots */
+.background::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,188,212,0.3) 2px, transparent 2px) repeat;
+  background-size: 40px 40px;
+  animation: moveDots 25s linear infinite;
+}
+
+/* Individual floating shimmering dots */
+@keyframes moveDots {
+  0% { transform: translate(0,0); opacity: 0.3; }
+  25% { transform: translate(15px,-10px); opacity: 0.5; }
+  50% { transform: translate(30px,15px); opacity: 0.7; }
+  75% { transform: translate(15px,5px); opacity: 0.5; }
+  100% { transform: translate(0,0); opacity: 0.3; }
+}
+
+/* Shimmer animation for circuit lines */
+@keyframes shimmer {
+  0% { transform: translate(0,0); opacity: 0.3; }
+  50% { transform: translate(25px,25px); opacity: 0.6; }
+  100% { transform: translate(0,0); opacity: 0.3; }
+}
+
+/* ====== Hero Section ====== */
 .hero {
   text-align: center;
   color: #fff;
-  padding: 80px 20px 40px;
+  padding: 100px 20px 40px;
 }
 
+/* Profile image in square with glow + hover zoom */
 .profile-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border: 3px solid #00bcd4;
+  border-radius: 16px; /* slightly rounded square */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .profile-img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px #00bcd4;
+  transform: scale(1.15);
+  box-shadow: 0 0 35px #00bcd4;
 }
 
+/* Glowing hero text */
 .glow-text {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-top: 20px;
   color: #ffffff;
-  text-shadow: 0 0 15px #00bcd4;
+  text-shadow: 0 0 20px #00bcd4, 0 0 35px #00bcd4;
 }
 
+/* Subtitle text */
 .subtitle {
   color: #c9d1d9;
   max-width: 700px;
   margin: 15px auto;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.5;
 }
 
-/* Animated Section Titles */
+/* ====== Animated Section Titles ====== */
 .section-title {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-top: 60px;
   margin-bottom: 25px;
   color: #00bcd4;
-  text-shadow: 0 0 15px #00bcd4;
+  text-shadow: 0 0 20px #00bcd4;
   position: relative;
   animation: fadeIn 1s ease;
 }
@@ -90,7 +120,7 @@
   }
 }
 
-/* Lists & Tables */
+/* ====== Lists & Tables ====== */
 ul {
   color: #c9d1d9;
   list-style-type: none;
@@ -123,7 +153,7 @@ th {
   background-color: rgba(0, 188, 212, 0.2);
 }
 
-/* Social Icons */
+/* ====== Social Icons ====== */
 .socials {
   margin-top: 30px;
 }
@@ -137,11 +167,11 @@ th {
 }
 
 .icon:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 18px #00bcd4);
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 25px #00bcd4);
 }
 
-/* Footer */
+/* ====== Footer ====== */
 footer {
   text-align: center;
   padding: 40px;
@@ -149,15 +179,15 @@ footer {
   font-size: 0.95rem;
 }
 
-/* Responsive Design */
+/* ====== Responsive Design ====== */
 @media (max-width: 768px) {
   .glow-text {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .profile-img {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 
   table {
