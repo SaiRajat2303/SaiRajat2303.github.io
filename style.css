@@ -90,5 +90,22 @@
 .section-title { text-align:center; font-size:2rem; margin-top:60px; margin-bottom:25px; color:#000; animation: fadeIn 1s ease; }
 @keyframes fadeIn { from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);} }
 
-/* Lists & Tables */
-ul { color:#000; list-style:none; max-width:800px; margin
+/* Lists & Tables continued */
+ul { color:#000; list-style:none; max-width:800px; margin:0 auto 40px; font-size:1.1rem; }
+ul li { padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.1); }
+
+table { width:90%; max-width:800px; margin:0 auto 60px; border-collapse:collapse; color:#000; }
+th, td { border:1px solid rgba(0,0,0,0.2); padding:10px; text-align:left; }
+th { background-color: rgba(0,0,0,0.05); }
+
+/* Footer */
+footer { text-align:center; padding:40px; color:#000; font-size:1rem; }
+
+/* Responsive Design */
+@media (max-width:768px){
+  .glow-text{font-size:2.2rem;}
+  .profile-img{width:180px;height:180px;}
+  table{font-size:0.9rem;}
+  .icon{width:35px;height:35px;}
+  .education { font-size:1rem; }
+}
