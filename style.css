@@ -82,10 +82,12 @@
 .company-logo:hover { transform: scale(1.3); filter: drop-shadow(0 0 20px #b3e0ff); }
 
 /* Glow Text */
-.glow-text { 
-  font-size:3rem; margin-top:20px; 
-  color: #7ab3e0; /* darker blue */
-  text-shadow: 0 0 10px #7ab3e0, 0 0 20px #7ab3e0; 
+/* Glow text heading - white color */
+.glow-text {
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #ffffff; /* white */
+  text-shadow: 0 0 10px #b3e0ff, 0 0 20px #b3e0ff; /* subtle bluish glow */
 }
 
 /* Subtitle (Job Title) */
