@@ -1,0 +1,51 @@
+# Site metadata
+title: Sai Rajat G.
+tagline: Incoming PhD @ UW–Madison · Computer Architecture
+description: >-
+  Personal site of Sai Rajat Goparaju — incoming PhD student in Computer Science
+  at the University of Wisconsin–Madison, advised by Prof. Matt Sinclair (HAL Lab).
+  Computer architecture, power & performance in data centers, RISC-V cores and system IP.
+author:
+  name: Sai Rajat Goparaju
+  short_name: Sai Rajat G.
+  email: sairajatgoparaju@gmail.com
+  github: SaiRajat2303
+  linkedin: sai-rajat-goparaju
+  linkedin_url: https://www.linkedin.com/in/sai-rajat-goparaju
+
+# URL config — set `url` to your custom domain or leave empty for *.github.io
+url: ""
+baseurl: ""
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+sass:
+  style: compressed
+
+# Collections
+collections:
+  news:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: none
+
+# Plugins (Jekyll 4.x via GitHub Actions)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+  - .github

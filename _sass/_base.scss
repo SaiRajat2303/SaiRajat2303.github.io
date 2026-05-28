@@ -1,0 +1,115 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: $bg;
+  color: $fg;
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  color: $accent-soft;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s $easing, border-color .2s $easing;
+}
+a:hover {
+  color: #fff;
+  border-bottom-color: $accent;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 .4em;
+  color: #fff;
+}
+
+p { margin: 0 0 1em; color: $fg-dim; }
+strong { color: $fg; font-weight: 600; }
+em { color: $fg; font-style: italic; }
+
+.mono { font-family: $font-mono; font-variant-numeric: tabular-nums; }
+.accent { color: $accent-soft; }
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: $page-max;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+// Buttons ----------------------------------------------------------------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .8rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .95rem;
+  border: 1px solid transparent;
+  transition: transform .2s $easing, background .2s $easing, border-color .2s $easing, box-shadow .2s $easing;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, $accent 0%, $accent-deep 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px -8px $accent-glow, inset 0 1px 0 rgba(255,255,255,.2);
+}
+.btn--primary:hover {
+  transform: translateY(-2px);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 32px -8px $accent-glow, inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: $fg;
+  border-color: $border-strong;
+}
+.btn--ghost:hover {
+  border-color: $accent;
+  color: #fff;
+  background: rgba(99,102,241,0.08);
+}
+
+// Chips ------------------------------------------------------------------
+.chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.chips li {
+  font-family: $font-mono;
+  font-size: .78rem;
+  padding: .35rem .7rem;
+  border-radius: 6px;
+  background: $bg-2;
+  border: 1px solid $border;
+  color: $fg-dim;
+  transition: border-color .2s $easing, color .2s $easing;
+}
+.chips li:hover {
+  border-color: $accent;
+  color: $fg;
+}

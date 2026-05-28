@@ -1,0 +1,23 @@
+<section class="section" id="news">
+  <div class="section__head">
+    <span class="section__num">03</span>
+    <h2 class="section__title">Recent News</h2>
+  </div>
+
+  <div class="section__body news">
+    <ol class="news__list">
+      {% assign items = site.news | sort: 'date' | reverse %}
+      {% for item in items %}
+        <li class="news-item">
+          <time class="news-item__date mono" datetime="{{ item.date | date_to_xmlschema }}">
+            {{ item.date | date: "%b %-d, %Y" }}
+          </time>
+          <div class="news-item__body">
+            {% if item.title %}<h3 class="news-item__title">{{ item.title }}</h3>{% endif %}
+            <div class="news-item__content">{{ item.content | markdownify }}</div>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<section class="section" id="experience">
+  <div class="section__head">
+    <span class="section__num">02</span>
+    <h2 class="section__title">Where I&rsquo;ve Been</h2>
+  </div>
+
+  <div class="section__body stops">
+    {% for stop in site.data.experience %}
+      <article class="stop {% if stop.featured %}stop--featured{% endif %}" id="{{ stop.id }}">
+        <header class="stop__head">
+          <div class="stop__logo {% if stop.featured %}stop__logo--featured{% endif %}">
+            <img src="{{ stop.logo | relative_url }}" alt="{{ stop.org }}">
+          </div>
+          <div class="stop__meta">
+            <h3 class="stop__org">{{ stop.org }}</h3>
+            <p class="stop__role">{{ stop.role }}</p>
+            <p class="stop__dates"><span class="mono">{{ stop.dates }}</span> · <span>{{ stop.location }}</span></p>
+          </div>
+        </header>
+
+        <div class="stop__body">
+          <p class="stop__summary">{{ stop.summary }}</p>
+          {% if stop.highlights %}
+            <ul class="stop__highlights">
+              {% for h in stop.highlights %}<li>{{ h }}</li>{% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

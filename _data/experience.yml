@@ -1,0 +1,146 @@
+# Order here drives the order of cards in the experience section.
+# `in_header: false` keeps a stop OFF the halo bar (still shows as a card).
+# `featured: true` gets the brighter halo + orbit ring (set on exactly one).
+
+- id: uw-madison
+  short: UW–Madison
+  org: University of Wisconsin–Madison
+  role: Incoming PhD in Computer Science · HAL Lab (Prof. Matt Sinclair)
+  dates: Fall 2026 →
+  location: Madison, WI, USA
+  logo: /assets/img/logos/uw.svg
+  featured: true
+  in_header: true
+  summary: >-
+    Joining the HAL Lab to work on computer architecture with an emphasis on
+    power and performance for data-center-scale systems — accelerators, GPUs,
+    memory hierarchies, and the software/hardware co-design that makes them
+    efficient at scale.
+  highlights:
+    - Research focus → power & performance modeling, accelerators, memory systems.
+    - Advisor → Prof. Matt Sinclair (HAL Lab).
+    - Start → Fall 2026.
+
+- id: tenstorrent
+  short: Tenstorrent
+  org: Tenstorrent
+  role: RISC-V Cores & System-IP Engineer
+  dates: Jan 2024 → Present
+  location: Bengaluru, India
+  logo: /assets/img/logos/tenstorrent.svg
+  in_header: true
+  summary: >-
+    RTL design and verification of Tenstorrent's high-performance RISC-V core
+    (Ascalon) and surrounding system IP — IOMMU, APLIC, AXI bridge, CHI↔AXI
+    bridge, multi-cluster L1/L2 caches. Co-author of RV TESTER, a (soon-to-be
+    open-sourced) testbench methodology for RISC-V cores presented at RISC-V
+    Summit North America 2025.
+  highlights:
+    - >-
+      RTL design + integration of IOMMU, APLIC and a peripheral AXI bridge —
+      enabled the DOOM + Linux-on-Ascalon demo at RISC-V Summit 2025, Santa
+      Clara. [SV]
+    - >-
+      Co-author and developer of RV TESTER, a (soon-to-be open-sourced)
+      testbench methodology for RISC-V cores; presented at RISC-V Summit NA
+      2025. [SV, C++]
+    - >-
+      First author of poster "Unleashing the Penguin: Programmable Device
+      Model for verifying RISC-V IOMMU using Linux" — accepted at RISC-V
+      Summit EU 2026.
+    - >-
+      Built an emulation-compatible multi-cluster L1 + L2 cache model on
+      Synopsys Zebu — caught intra/inter-cluster coherency and secure-access
+      bugs in simulation. [SV, C++]
+    - >-
+      Designed a novel end-of-simulation memory-checking methodology with a
+      micro-architectural acceleration approach; presented as a poster to Jim
+      Keller (CEO, Tenstorrent) in Austin, TX. [C++]
+    - >-
+      Designed and integrated the Shared-Cache CHI↔AXI Bridge (CAB) RTL block,
+      handling memory-ordering for AXI requests to main memory. [SV]
+    - >-
+      Feature owner for PMA, PMP, and Command-Queue verification on the RISC-V
+      IOMMU; built UVM test plans and coverage. [SV, UVM]
+    - >-
+      Built a DV environment that emulates DMA devices via a trickbox region —
+      verified Linux device-driver sequences on TT-Ascalon using AXI
+      transactors firing DMA reads/writes through the IOMMU. [SV, C++]
+    - >-
+      Tracer infrastructure for transactions across cluster components
+      (AXI bridge / switch / sizer / ring, N-Trace, MMR space) — measurably
+      improved debug throughput.
+    - >-
+      Coherency monitor between LSU and L2 (synthesizable, emulation-
+      compatible); checkers for SVADU and AXI response-timeout that caught
+      critical RTL + perf bugs. [SV, AMBA CHI-E]
+    - >-
+      Reference model for Patch-RAM verification on Tenstorrent's 8-core CPU
+      cluster. [SV, C++]
+
+- id: google
+  short: Google
+  org: Google · Silicon Engineering
+  role: Silicon Engineering Intern
+  dates: May → Aug 2023
+  location: Bengaluru, India
+  logo: /assets/img/logos/google.svg
+  in_header: true
+  summary: >-
+    Built the design-verification testbench and environment from scratch for
+    configuring and verifying the GPU IP that ships in Pixel-9.
+  highlights:
+    - >-
+      Built the DV environment and testbench from scratch for the Pixel-9 GPU
+      IP. [SV, UVM]
+    - >-
+      Multiple protocol-based agents (AMBA AXI, APB, ACE), interfaces, and
+      memory models.
+    - >-
+      Fully verified the IP and kicked off testbench-component reuse for the
+      next-generation RTL.
+
+- id: samsung
+  short: Samsung SSIR
+  org: Samsung Semiconductor India Research (SSIR)
+  role: Engineering Intern
+  dates: May → Jul 2022
+  location: Bengaluru, India
+  logo: /assets/img/logos/samsung.svg
+  in_header: false
+  summary: >-
+    Internship on Samsung's internal non-volatile memory IPs.
+  highlights:
+    - Worked on internal non-volatile memory IPs.
+    - >-
+      Developed a data logger / monitor for an I²C-based communication bus.
+      [Verilog]
+
+- id: bits
+  short: BITS Pilani
+  org: BITS Pilani (Hyderabad)
+  role: >-
+    B.E. (Hons.) in Electrical & Electronics Engineering · CGPA 9.42/10 ·
+    Branch Rank 2
+  dates: Nov 2020 → Jun 2024
+  location: Hyderabad, India
+  logo: /assets/img/logos/bits.svg
+  in_header: true
+  summary: >-
+    B.E. (Hons.) in EEE with a focus on digital design, computer architecture,
+    and VLSI. Graduated as Branch Rank 2 with a CGPA of 9.42/10. Two semesters
+    as an Undergraduate Teaching Assistant across courses with 1,000+ combined
+    enrolment.
+  highlights:
+    - >-
+      Undergraduate TA — Digital Design (CS/ECE/EEE/INSTR F215) under
+      Dr. Joyjit Mukherjee · 650+ students · Aug → Dec 2023.
+    - >-
+      Designed tutorial sheets and ran lab sessions under Dr. Sumit Kumar
+      Chatterjee — RTL coding on Xilinx Vivado Design Suite.
+    - >-
+      Undergraduate TA — Microelectronic Circuits (ECE/EEE/INSTR F244) under
+      Dr. Syed Ershad Ahmed · 400+ students · Jan → May 2023.
+    - >-
+      Prepared problem sets and detailed solutions; ran doubt-clearing
+      sessions on MOS device physics.

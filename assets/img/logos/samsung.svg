@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Samsung Semiconductor India Research">
+  <defs>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1428a0"/>
+    </linearGradient>
+  </defs>
+  <text x="50" y="52" text-anchor="middle"
+        font-family="Inter, system-ui, sans-serif" font-weight="800"
+        font-size="20" fill="url(#sg)" letter-spacing="-0.5">Samsung</text>
+  <rect x="24" y="59" width="52" height="1.5" rx="0.75" fill="#1428a0"/>
+  <text x="50" y="78" text-anchor="middle"
+        font-family="JetBrains Mono, ui-monospace, monospace" font-weight="600"
+        font-size="8" fill="#60a5fa" letter-spacing="2.5">SSIR</text>
+</svg>

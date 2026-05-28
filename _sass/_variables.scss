@@ -1,0 +1,30 @@
+// ── Color tokens ─────────────────────────────────────────────────────────────
+// Indigo accent on a near-black "silicon" backdrop.
+$accent:        #6366f1;          // indigo-500
+$accent-soft:   #818cf8;          // indigo-400
+$accent-deep:   #4f46e5;          // indigo-600
+$accent-glow:   rgba(99, 102, 241, 0.55);
+
+$bg:            #07070d;          // base
+$bg-1:          #0c0d18;          // raised
+$bg-2:          #131524;          // card
+$bg-3:          #1b1e30;          // hover/border-strong
+
+$fg:            #e6e8f2;
+$fg-dim:        #a4a9c2;
+$fg-mute:       #6e7494;
+
+$border:        rgba(255, 255, 255, 0.08);
+$border-strong: rgba(255, 255, 255, 0.16);
+
+// ── Type ─────────────────────────────────────────────────────────────────────
+$font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+// ── Layout ───────────────────────────────────────────────────────────────────
+$page-max: 1080px;
+$radius:   14px;
+$radius-lg: 22px;
+
+// ── Motion ───────────────────────────────────────────────────────────────────
+$easing: cubic-bezier(.2, .8, .2, 1);

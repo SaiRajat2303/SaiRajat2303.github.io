@@ -1,0 +1,16 @@
+<header class="halo-bar" aria-label="Affiliations">
+  <nav class="halo-bar__nav">
+    {% for stop in site.data.experience %}
+      {% if stop.in_header == false %}{% continue %}{% endif %}
+      <a class="halo {% if stop.featured %}halo--featured{% endif %}"
+         href="#{{ stop.id }}"
+         aria-label="{{ stop.org }} — {{ stop.role }}">
+        <span class="halo__ring" aria-hidden="true"></span>
+        <span class="halo__logo">
+          <img src="{{ stop.logo | relative_url }}" alt="{{ stop.org }} logo" loading="eager" decoding="async">
+        </span>
+        <span class="halo__label">{{ stop.short }}</span>
+      </a>
+    {% endfor %}
+  </nav>
+</header>
