@@ -1,10 +1,12 @@
 # Site metadata
-title: Sai Rajat G.
+title: Sai Rajat Goparaju
 tagline: Incoming PhD @ UW–Madison · Computer Architecture
 description: >-
   Personal site of Sai Rajat Goparaju — incoming PhD student in Computer Science
-  at the University of Wisconsin–Madison, advised by Prof. Matt Sinclair (HAL Lab).
-  Computer architecture, power & performance in data centers, RISC-V cores and system IP.
+  at the University of Wisconsin–Madison, joining the HAL Lab (Prof. Matt Sinclair).
+  Computer architecture, power & performance in data centers, RISC-V cores
+  and system IP, accelerators, and memory systems.
+
 author:
   name: Sai Rajat Goparaju
   short_name: Sai Rajat G.
@@ -13,9 +15,31 @@ author:
   linkedin: sai-rajat-goparaju
   linkedin_url: https://www.linkedin.com/in/sai-rajat-goparaju
 
-# URL config — set `url` to your custom domain or leave empty for *.github.io
-url: ""
+# Default Open Graph share image (1200×630).
+# Picked up automatically by jekyll-seo-tag for og:image / twitter:image.
+image: /assets/img/og.png
+
+# Used by jekyll-seo-tag → JSON-LD "sameAs" + social meta.
+social:
+  name: Sai Rajat Goparaju
+  links:
+    - https://github.com/SaiRajat2303
+    - https://www.linkedin.com/in/sai-rajat-goparaju
+
+# URL config — `url` MUST be the absolute origin (no trailing slash) for SEO/OG.
+url: "https://sairajat2303.github.io"
 baseurl: ""
+
+# Analytics — leave empty to disable. Fill in your GoatCounter subdomain code
+# (e.g. "sairajat" for sairajat.goatcounter.com) once you've signed up at
+# https://goatcounter.com/signup. Snippet is conditional in _includes/head.html.
+analytics:
+  goatcounter: "sairajat"
+
+# Google Search Console — paste the verification token (just the value of the
+# `content` attribute from the meta tag Google gives you). Leave empty until
+# you've added the property at https://search.google.com/search-console.
+google_site_verification: "xnhTY4eN2YSaLZtycMkWEHYDhsPgR9hOnoQeso6EHmI"
 
 # Build
 markdown: kramdown
