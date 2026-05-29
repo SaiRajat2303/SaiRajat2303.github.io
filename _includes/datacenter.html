@@ -1,0 +1,119 @@
+{%- comment -%}
+  Datacenter / chiplet-cluster backdrop.
+
+  Pure SVG + CSS animations. Five chips arranged around a central GPU:
+    • Four 8-core CPU dies, each with a shared LLC strip between the
+      top and bottom core rows.
+    • One central GPU die with 64 SMs in an 8×8 grid.
+  Interconnect mesh + traveling pulses suggest workload data flow. All
+  low-opacity indigo monochrome so the foreground stays readable. CSS
+  in _sass/_backdrops.scss handles fade, motion and reduced-motion.
+
+  Geometry notes:
+    viewBox          = 1200 × 800, rendered with `xMidYMid slice`
+    CPU package      = 200 × 140, die 180 × 120
+    CPU cores        = 36 × 28, 4×2 grid (x stride 44, y stride 64),
+                       LLC strip 152 × 16 between the two core rows
+    GPU package      = 280 × 220, die 260 × 200
+    GPU SMs          = 22 × 18, 8×8 grid (stride 28 × 22)
+{%- endcomment -%}
+
+<svg class="dc" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice"
+     aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Interconnect fabric (drawn behind chips) -->
+  <g class="dc__links" fill="none">
+    <path id="dc-link-1" d="M 280 150 Q 380 230 540 350" />
+    <path id="dc-link-2" d="M 920 180 Q 820 240 660 350" />
+    <path id="dc-link-3" d="M 250 630 Q 380 530 540 450" />
+    <path id="dc-link-4" d="M 960 660 Q 820 540 660 450" />
+    <path id="dc-link-5" d="M 280 150 Q 600 50  920 180" />
+    <path id="dc-link-6" d="M 250 630 Q 600 760 960 660" />
+    <path id="dc-link-7" d="M 180 220 L 215 560" />
+    <path id="dc-link-8" d="M 1020 220 L 990 590" />
+  </g>
+
+  <!-- ─── CPU NW · 8c + LLC ─── -->
+  <g class="dc__chip dc__chip--cpu" transform="translate(80,80)">
+    <rect class="dc__pkg" width="200" height="140" rx="8"/>
+    <rect class="dc__die" x="10" y="10" width="180" height="120" rx="4"/>
+    {% for c in (0..3) %}
+      {% assign dt = c | times: 0.28 %}
+      {% assign db = c | times: 0.28 | plus: 1.4 %}
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="20" width="36" height="28" rx="2" style="animation-delay:{{ dt }}s"/>
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="84" width="36" height="28" rx="2" style="animation-delay:{{ db }}s"/>
+    {% endfor %}
+    <rect class="dc__cache" x="20" y="56" width="152" height="16" rx="2"/>
+    <text class="dc__cache-label" x="96" y="67" text-anchor="middle">L2 · SHARED</text>
+    <text class="dc__label" x="100" y="158" text-anchor="middle">CPU · 8c + LLC</text>
+  </g>
+
+  <!-- ─── CPU NE · 8c + LLC ─── -->
+  <g class="dc__chip dc__chip--cpu" transform="translate(920,110)">
+    <rect class="dc__pkg" width="200" height="140" rx="8"/>
+    <rect class="dc__die" x="10" y="10" width="180" height="120" rx="4"/>
+    {% for c in (0..3) %}
+      {% assign dt = c | times: 0.31 | plus: 0.6 %}
+      {% assign db = c | times: 0.31 | plus: 2.0 %}
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="20" width="36" height="28" rx="2" style="animation-delay:{{ dt }}s"/>
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="84" width="36" height="28" rx="2" style="animation-delay:{{ db }}s"/>
+    {% endfor %}
+    <rect class="dc__cache" x="20" y="56" width="152" height="16" rx="2"/>
+    <text class="dc__cache-label" x="96" y="67" text-anchor="middle">L2 · SHARED</text>
+    <text class="dc__label" x="100" y="158" text-anchor="middle">CPU · 8c + LLC</text>
+  </g>
+
+  <!-- ─── GPU · 64 SM (center, denser core grid) ─── -->
+  <g class="dc__chip dc__chip--gpu" transform="translate(460,290)">
+    <rect class="dc__pkg" width="280" height="220" rx="10"/>
+    <rect class="dc__die" x="10" y="10" width="260" height="200" rx="5"/>
+    {% for r in (0..7) %}{% for c in (0..7) %}
+      {% assign i = r | times: 8 | plus: c %}
+      {% assign d = i | times: 0.07 %}
+      <rect class="dc__core dc__core--gpu" x="{{ c | times: 28 | plus: 31 }}" y="{{ r | times: 22 | plus: 24 }}" width="22" height="18" rx="1.5" style="animation-delay:{{ d }}s"/>
+    {% endfor %}{% endfor %}
+    <text class="dc__label" x="140" y="240" text-anchor="middle">GPU · 64 SM</text>
+  </g>
+
+  <!-- ─── CPU SW · 8c + LLC ─── -->
+  <g class="dc__chip dc__chip--cpu" transform="translate(150,560)">
+    <rect class="dc__pkg" width="200" height="140" rx="8"/>
+    <rect class="dc__die" x="10" y="10" width="180" height="120" rx="4"/>
+    {% for c in (0..3) %}
+      {% assign dt = c | times: 0.27 | plus: 1.2 %}
+      {% assign db = c | times: 0.27 | plus: 2.6 %}
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="20" width="36" height="28" rx="2" style="animation-delay:{{ dt }}s"/>
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="84" width="36" height="28" rx="2" style="animation-delay:{{ db }}s"/>
+    {% endfor %}
+    <rect class="dc__cache" x="20" y="56" width="152" height="16" rx="2"/>
+    <text class="dc__cache-label" x="96" y="67" text-anchor="middle">L2 · SHARED</text>
+    <text class="dc__label" x="100" y="158" text-anchor="middle">CPU · 8c + LLC</text>
+  </g>
+
+  <!-- ─── CPU SE · 8c + LLC ─── -->
+  <g class="dc__chip dc__chip--cpu" transform="translate(860,590)">
+    <rect class="dc__pkg" width="200" height="140" rx="8"/>
+    <rect class="dc__die" x="10" y="10" width="180" height="120" rx="4"/>
+    {% for c in (0..3) %}
+      {% assign dt = c | times: 0.33 | plus: 1.8 %}
+      {% assign db = c | times: 0.33 | plus: 3.2 %}
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="20" width="36" height="28" rx="2" style="animation-delay:{{ dt }}s"/>
+      <rect class="dc__core" x="{{ c | times: 44 | plus: 20 }}" y="84" width="36" height="28" rx="2" style="animation-delay:{{ db }}s"/>
+    {% endfor %}
+    <rect class="dc__cache" x="20" y="56" width="152" height="16" rx="2"/>
+    <text class="dc__cache-label" x="96" y="67" text-anchor="middle">L2 · SHARED</text>
+    <text class="dc__label" x="100" y="158" text-anchor="middle">CPU · 8c + LLC</text>
+  </g>
+
+  <!-- Pulses traveling along interconnects (workload data flow) -->
+  <g class="dc__pulses">
+    <circle class="dc__pulse" r="3.5"><animateMotion dur="5.5s" repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-1"/></animateMotion></circle>
+    <circle class="dc__pulse" r="3.5"><animateMotion dur="6.5s" begin="1.2s" repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-2"/></animateMotion></circle>
+    <circle class="dc__pulse" r="3.5"><animateMotion dur="6s"   begin="2.4s" repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-3"/></animateMotion></circle>
+    <circle class="dc__pulse" r="3.5"><animateMotion dur="5s"   begin="0.8s" repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-4"/></animateMotion></circle>
+    <circle class="dc__pulse dc__pulse--alt" r="2.5"><animateMotion dur="9s"   begin="0s"   repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-5"/></animateMotion></circle>
+    <circle class="dc__pulse dc__pulse--alt" r="2.5"><animateMotion dur="10s"  begin="3s"   repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-6"/></animateMotion></circle>
+    <circle class="dc__pulse dc__pulse--alt" r="2.5"><animateMotion dur="7s"   begin="1.5s" repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-7"/></animateMotion></circle>
+    <circle class="dc__pulse dc__pulse--alt" r="2.5"><animateMotion dur="7.5s" begin="2.8s" repeatCount="indefinite" rotate="auto"><mpath href="#dc-link-8"/></animateMotion></circle>
+  </g>
+</svg>

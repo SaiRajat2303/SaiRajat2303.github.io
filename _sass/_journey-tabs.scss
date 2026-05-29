@@ -1,0 +1,89 @@
+// Tab strip above the journey panel — one tab per affiliation.
+// The active tab styling matches the indigo/halo aesthetic; inactive tabs
+// are quiet so they don't compete with the visible panel content.
+
+.journey-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .5rem;
+  margin-bottom: 1.75rem;
+  padding: .5rem;
+  background: linear-gradient(160deg, $bg-1, $bg-2);
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+}
+
+@media (max-width: 760px) {
+  .journey-tabs { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+  .journey-tabs { grid-template-columns: repeat(2, 1fr); }
+}
+
+.journey-tab {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .7rem .9rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: $radius;
+  color: $fg-mute;
+  font-family: $font-sans;
+  font-weight: 600;
+  font-size: .9rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background .2s $easing,
+    border-color .2s $easing,
+    color .2s $easing,
+    transform .2s $easing,
+    box-shadow .2s $easing;
+}
+
+.journey-tab:hover {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: $border;
+  color: $fg;
+}
+
+.journey-tab--active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.06));
+  border-color: rgba(99, 102, 241, 0.40);
+  color: #fff;
+  box-shadow: 0 6px 22px -10px $accent-glow;
+}
+
+.journey-tab__logo {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-strong;
+  transition: border-color .2s $easing;
+}
+.journey-tab--active .journey-tab__logo {
+  border-color: rgba(99, 102, 241, 0.45);
+}
+.journey-tab__logo img {
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+}
+
+.journey-tab__name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Keyboard focus ring (accessible)
+.journey-tab:focus-visible {
+  outline: 2px solid $accent;
+  outline-offset: 2px;
+}

@@ -1,0 +1,105 @@
+// Compact "Contact me" section before the footer.
+// Three icon-led cards (Email / GitHub / LinkedIn).
+
+.section--contact {
+  padding: 4rem 0 5rem;
+  scroll-margin-top: 80px;
+}
+
+.contact-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 700px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .85rem;
+  padding: 1.75rem 1.25rem;
+  background: linear-gradient(160deg, $bg-1, $bg-2);
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  text-align: center;
+  text-decoration: none;
+  color: $fg;
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform .2s $easing,
+    border-color .2s $easing,
+    box-shadow .2s $easing,
+    background .2s $easing;
+}
+.contact-card::before {
+  // Soft brand-color glow behind the card on hover
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: $radius-lg;
+  background: var(--brand-glow, transparent);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .25s $easing;
+  filter: blur(28px);
+}
+.contact-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-color, $accent);
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.75);
+  color: #fff;
+}
+.contact-card:hover::before { opacity: 0.55; }
+
+.contact-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-strong;
+  color: var(--brand-color, $accent-soft);
+  transition: background .2s $easing, color .2s $easing, transform .2s $easing;
+}
+.contact-card:hover .contact-card__icon {
+  background: rgba(99, 102, 241, 0.08);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.contact-card__name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.contact-card__handle {
+  color: $fg-mute;
+  font-size: .82rem;
+  word-break: break-all;
+  transition: color .2s $easing;
+}
+.contact-card:hover .contact-card__handle { color: $fg-dim; }
+
+// ── Brand tints ───────────────────────────────────────────────────────────
+.contact-card--mail {
+  --brand-color: #{$accent-soft};
+  --brand-glow:  #{$accent-glow};
+}
+.contact-card--github {
+  --brand-color: #e6edf3;
+  --brand-glow:  rgba(230, 237, 243, 0.25);
+}
+.contact-card--linkedin {
+  --brand-color: #0a66c2;
+  --brand-glow:  rgba(10, 102, 194, 0.45);
+}

@@ -7,8 +7,10 @@
       <div class="backdrop__glow backdrop__glow--a"></div>
       <div class="backdrop__glow backdrop__glow--b"></div>
       <div class="backdrop__glow backdrop__glow--c"></div>
-      <div class="backdrop__chips" aria-hidden="true"></div>
+      {%- include datacenter.html -%}
     </div>
+
+    {%- include site-nav.html -%}
 
     <main class="page">
       {{ content }}

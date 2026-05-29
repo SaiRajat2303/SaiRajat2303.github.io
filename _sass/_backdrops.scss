@@ -56,22 +56,121 @@
   100% { transform: translate(60px, 40px) scale(1.08); }
 }
 
-// Faint "chips" — small square outlines suggesting dies on a rack
-.backdrop__chips {
+// ── Datacenter / chiplet-cluster SVG ──────────────────────────────────────
+// Five chips (4 CPUs + 1 central GPU) with core grids, interconnect mesh,
+// and traveling pulses. Markup lives in _includes/datacenter.html.
+
+.dc {
   position: absolute;
   inset: 0;
-  background-image:
-    // top-right cluster
-    linear-gradient(rgba(99,102,241,0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99,102,241,0.18) 1px, transparent 1px);
-  background-size: 220px 220px;
-  background-position: 90% 8%, 90% 8%;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  mix-blend-mode: screen;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+  pointer-events: none;
+  // Fade the SVG into the page edges so it doesn't compete with content.
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 0%, #000 45%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 0%, #000 45%, transparent 90%);
+}
+
+// Chip package outline + die area
+.dc__pkg {
+  fill: rgba(99, 102, 241, 0.03);
+  stroke: rgba(99, 102, 241, 0.35);
+  stroke-width: 1.2;
+}
+.dc__die {
+  fill: rgba(99, 102, 241, 0.05);
+  stroke: rgba(99, 102, 241, 0.18);
+  stroke-width: 0.75;
+}
+
+// Core blocks — idle dim, periodically lit by the blink animation
+.dc__core {
+  fill: rgba(99, 102, 241, 0.10);
+  stroke: rgba(99, 102, 241, 0.20);
+  stroke-width: 0.5;
+  animation: dc-core-blink 4.2s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+// GPU cores are denser and slightly cooler; blink faster (workload activity)
+.dc__core--gpu {
+  fill: rgba(129, 140, 248, 0.12);
+  stroke: rgba(129, 140, 248, 0.22);
+  animation-duration: 2.6s;
+}
+
+// Shared LLC strip between the two core rows of each CPU.
+// Slightly warmer hue + a slow "write activity" pulse to read distinct from cores.
+.dc__cache {
+  fill: rgba(167, 139, 250, 0.18);
+  stroke: rgba(167, 139, 250, 0.40);
+  stroke-width: 0.6;
+  animation: dc-cache-pulse 5s ease-in-out infinite;
+}
+
+.dc__cache-label {
+  font-family: $font-mono;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  fill: rgba(196, 181, 253, 0.7);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+// "GPU" chip gets a stronger outline so it reads as the cluster's hub
+.dc__chip--gpu .dc__pkg {
+  stroke: rgba(99, 102, 241, 0.55);
+  stroke-width: 1.5;
+}
+.dc__chip--gpu .dc__die { stroke: rgba(99, 102, 241, 0.28); }
+
+// Chip labels (CPU · 12c / GPU · 40 SM)
+.dc__label {
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  fill: rgba(165, 180, 252, 0.55);
+  text-transform: uppercase;
+}
+
+// Interconnect mesh
+.dc__links path {
+  stroke: rgba(99, 102, 241, 0.22);
+  stroke-width: 1.2;
+  stroke-dasharray: 2 6;
+  stroke-linecap: round;
+  fill: none;
+}
+
+// Traveling pulses (workload data flow)
+.dc__pulse {
+  fill: $accent-soft;
+  filter: drop-shadow(0 0 6px $accent);
+}
+.dc__pulse--alt {
+  fill: rgba(196, 181, 253, 0.95);
+  filter: drop-shadow(0 0 4px rgba(167, 139, 250, 0.9));
+}
+
+@keyframes dc-core-blink {
+  0%,  60%       { fill-opacity: 0.10; }
+  68%, 76%       { fill-opacity: 0.85; }
+  88%, 100%      { fill-opacity: 0.10; }
+}
+
+@keyframes dc-cache-pulse {
+  0%, 100% { fill-opacity: 0.18; }
+  50%      { fill-opacity: 0.45; }
 }
 
 // Reduce motion preference
 @media (prefers-reduced-motion: reduce) {
-  .backdrop__glow { animation: none; }
+  .backdrop__glow,
+  .dc__core { animation: none; }
+  // SVG SMIL <animateMotion> is harder to disable from CSS — we let it run
+  // but slow it dramatically by simply lowering the opacity.
+  .dc__pulse { opacity: 0.3; }
 }

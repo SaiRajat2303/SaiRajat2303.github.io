@@ -56,14 +56,15 @@
 }
 
 // Stops (experience) ----------------------------------------------------
-.stops {
-  display: grid;
-  gap: 1.25rem;
+// Stops live inside `.journey-panels` and behave as tab panels — only the
+// one with `.stop--active` is visible. Inactive panels are position:absolute
+// (out of flow, invisible) so CSS transitions reliably fire on switch.
+.journey-panels {
+  position: relative;
 }
 
 .stop {
   scroll-margin-top: 120px;
-  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
@@ -71,12 +72,37 @@
   background: linear-gradient(160deg, $bg-1, $bg-2);
   border: 1px solid $border;
   border-radius: $radius-lg;
-  transition: border-color .25s $easing, transform .25s $easing;
+
+  // Inactive (default) state — invisible, out of flow.
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  opacity: 0;
+  transform: translateX(28px);
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity     .42s $easing,
+    transform   .42s $easing,
+    border-color .25s $easing,
+    visibility  0s linear .42s;
 }
-.stop:hover {
-  border-color: $border-strong;
-  transform: translateY(-2px);
+
+// Active panel — takes natural flow, animates in from the right.
+.stop--active {
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition:
+    opacity     .42s $easing,
+    transform   .42s $easing,
+    border-color .25s $easing,
+    visibility  0s;
+  z-index: 1;
 }
+
+.stop:hover { border-color: $border-strong; }
 .stop--featured {
   border-color: rgba(99,102,241,0.35);
   box-shadow: 0 16px 40px -20px $accent-glow;

@@ -1,26 +1,36 @@
 <section class="hero" id="top">
-  <div class="hero__inner">
-    <p class="hero__eyebrow"><span class="dot"></span> Computer Architecture · Power &amp; Performance · RISC-V</p>
-    <h1 class="hero__name">
-      Sai Rajat <span class="hero__name-mark">G.</span>
-    </h1>
-    <p class="hero__headline">
-      Incoming PhD in CS @ <span class="accent">University of Wisconsin&ndash;Madison</span><br>
-      Computer Architecture · Power &amp; Performance in Data Centers
-    </p>
-    <p class="hero__bio">
-      I am an incoming PhD student in the Department of Computer Science at the University of Wisconsin&ndash;Madison,
-      joining the <a href="https://research.cs.wisc.edu/hal/" target="_blank" rel="noopener">HAL Lab</a> led by
-      <a href="https://pages.cs.wisc.edu/~sinclair/" target="_blank" rel="noopener">Prof.&nbsp;Matt&nbsp;Sinclair</a>.
-      Currently, I am a RISC-V Cores and System-IP engineer at Tenstorrent, where I have worked on the design
-      and verification of a high-performance RISC-V core (<em>Ascalon</em>) and RISC-V system IPs such as the IOMMU.
-    </p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="mailto:{{ site.author.email }}">
-        <span>Contact Me</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn--ghost" href="#about">Learn more</a>
+  <div class="hero__grid">
+    <div class="hero__inner">
+      <p class="hero__eyebrow"><span class="dot"></span> Computer Architecture · Power &amp; Performance · RISC-V</p>
+      <h1 class="hero__name">
+        Sai Rajat <span class="hero__name-mark">G.</span>
+      </h1>
+      <p class="hero__headline">
+        Incoming PhD in CS @ <span class="accent">University of Wisconsin&ndash;Madison</span><br>
+        Computer Architecture · Power &amp; Performance in Data Centers
+      </p>
+      <p class="hero__bio">
+        I am an incoming PhD student in the Department of Computer Science at the University of Wisconsin&ndash;Madison,
+        joining the <a href="https://research.cs.wisc.edu/hal/" target="_blank" rel="noopener">HAL Lab</a> led by
+        <a href="https://pages.cs.wisc.edu/~sinclair/" target="_blank" rel="noopener">Prof.&nbsp;Matt&nbsp;Sinclair</a>.
+        Currently, I am a RISC-V Cores and System-IP engineer at Tenstorrent, where I have worked on the design
+        and verification of a high-performance RISC-V core (<em>Ascalon</em>) and RISC-V system IPs such as the IOMMU.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="mailto:{{ site.author.email }}">
+          <span>Contact Me</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#about">Learn more</a>
+      </div>
     </div>
+
+    <figure class="hero__avatar" aria-label="Portrait of Sai Rajat Goparaju">
+      <span class="hero__avatar-ring" aria-hidden="true"></span>
+      <span class="hero__avatar-orbit" aria-hidden="true"></span>
+      <img src="{{ '/assets/img/me.jpg' | relative_url }}"
+           alt="Sai Rajat Goparaju"
+           loading="eager" decoding="async">
+    </figure>
   </div>
 </section>
