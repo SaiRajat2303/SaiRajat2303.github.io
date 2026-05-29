@@ -1,8 +1,5 @@
 # sairajatg.dev — personal site
 
-Personal website for **Sai Rajat Goparaju** — incoming PhD student in Computer
-Science at the University of Wisconsin–Madison (HAL Lab, Prof. Matt Sinclair).
-
 Built as a custom Jekyll 4 site (al-folio-inspired structure) with a dark
 indigo "silicon" aesthetic, halo-glow header logos, and a news feed for PhD
 updates, preprints, and submissions.
